@@ -326,18 +326,59 @@ a  { color: inherit; text-decoration: none; }
   color: var(--gray-4);
 }
 
-.btn-shop {
+.preorder-badge {
   display: inline-block;
-  padding: 16px 60px;
-  border: 1px solid var(--off-white);
-  font-size: 11px;
-  letter-spacing: .3em;
-  transition: all .3s;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 16px;
+  margin-bottom: 32px;
 }
 
-.btn-shop:hover {
-  background: var(--off-white);
+.price-regular {
+  text-decoration: line-through;
+  opacity: .45;
+}
+
+.preorder-note {
+  padding: 20px 0;
+  border-top: 1px solid var(--gray-1);
+  border-bottom: 1px solid var(--gray-1);
+  margin: 8px 0 32px;
+}
+
+.preorder-note p {
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--gray-4);
+  line-height: 2;
+}
+
+.btn-shop {
+  display: inline-block;
+  padding: 18px 48px;
+  background: var(--gold);
   color: var(--black);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  transition: opacity .3s;
+  margin-bottom: 16px;
+}
+
+.btn-shop:hover { opacity: .85; }
+
+.shop-sub {
+  font-size: 11px;
+  letter-spacing: .05em;
+  color: var(--gray-4);
+}
+
+.shop-sub a {
+  color: var(--gray-4);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ===========================
