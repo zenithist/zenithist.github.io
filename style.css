@@ -923,7 +923,7 @@ footer {
   .nav-hamburger { display: flex; }
   .mobile-menu { display: flex; }
 
-  .hero-content { padding-bottom: 56px; }
+  .hero-content { padding-bottom: 120px; }
 
   .collection-brand { padding: 72px 24px; }
   .drop-grid {
