@@ -690,6 +690,12 @@ a  { color: inherit; text-decoration: none; }
   color: var(--gray-4);
 }
 
+.drop-remaining {
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--gold);
+}
+
 .btn-drop {
   display: inline-block;
   margin-top: 8px;
@@ -923,7 +929,11 @@ footer {
   .nav-hamburger { display: flex; }
   .mobile-menu { display: flex; }
 
-  .hero-content { padding-bottom: 120px; }
+  .hero-content {
+    justify-content: flex-start;
+    padding-top: 96px;
+    padding-bottom: 0;
+  }
 
   .collection-brand { padding: 72px 24px; }
   .drop-grid {
