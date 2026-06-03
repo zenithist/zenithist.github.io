@@ -111,6 +111,37 @@
           </div>
           <p class="drop-limit">予約受付上限：200名</p>
           <p class="drop-remaining">残りわずか</p>
+
+          <!-- SIZE GUIDE -->
+          <div class="size-guide">
+            <button class="size-guide-toggle" id="sizeGuideToggle">SIZE GUIDE <span class="size-guide-arrow">▼</span></button>
+            <div class="size-guide-body" id="sizeGuideBody">
+              <p class="size-guide-note">ユニセックス対応 / 女性はワンサイズ下を推奨</p>
+              <p class="size-guide-sub">TOPS（単位：cm）</p>
+              <table class="size-table">
+                <thead><tr><th></th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th></tr></thead>
+                <tbody>
+                  <tr><td>着丈</td><td>66</td><td>68</td><td>70</td><td>72</td><td>74</td><td>76</td></tr>
+                  <tr><td>身幅</td><td>50</td><td>53</td><td>56</td><td>59</td><td>62</td><td>65</td></tr>
+                  <tr><td>肩幅</td><td>44</td><td>46</td><td>48</td><td>50</td><td>52</td><td>54</td></tr>
+                  <tr><td>袖丈</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr>
+                </tbody>
+              </table>
+              <p class="size-guide-sub">SHORTS（単位：cm）</p>
+              <table class="size-table">
+                <thead><tr><th></th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th></tr></thead>
+                <tbody>
+                  <tr><td>総丈</td><td>46</td><td>48</td><td>50</td><td>52</td><td>54</td><td>56</td></tr>
+                  <tr><td>W（体）</td><td>68-72</td><td>72-78</td><td>78-84</td><td>84-90</td><td>90-96</td><td>96-102</td></tr>
+                  <tr><td>ヒップ</td><td>94</td><td>98</td><td>102</td><td>106</td><td>110</td><td>114</td></tr>
+                  <tr><td>もも周り</td><td>56</td><td>59</td><td>62</td><td>65</td><td>68</td><td>71</td></tr>
+                  <tr><td>股上</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+                  <tr><td>股下</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <a href="https://book.stripe.com/6oU4gz29yeRmfTg5QW5AQ00" target="_blank" class="btn-drop">先行予約する</a>
         </div>
       </div>
@@ -234,6 +265,16 @@
       if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
       if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
     });
+
+    // Size guide accordion
+    const sizeToggle = document.getElementById('sizeGuideToggle');
+    const sizeBody = document.getElementById('sizeGuideBody');
+    if (sizeToggle) {
+      sizeToggle.addEventListener('click', () => {
+        const open = sizeBody.classList.toggle('open');
+        sizeToggle.querySelector('.size-guide-arrow').textContent = open ? '▲' : '▼';
+      });
+    }
 
     // Hero: video fallback
     const video = document.querySelector('.hero-video');
