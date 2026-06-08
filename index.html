@@ -80,6 +80,39 @@
     </div>
   </section>
 
+  <!-- BRAND STORY -->
+  <section class="brand-story-section">
+    <div class="brand-story-inner">
+      <p class="brand-story-en">Why ZENITHIST?</p>
+      <p class="brand-story-ja">心から欲しいと思えるゴルフウェアは、いつも海外ブランドだった。<br>日本人の美意識と誇りを宿したブランドは、なぜ存在しないのか。<br><strong>ないなら、作る。</strong></p>
+    </div>
+  </section>
+
+  <!-- VALUE SECTION -->
+  <section class="value-section">
+    <div class="value-inner">
+      <p class="value-label">WHY ¥19,800</p>
+      <div class="value-grid">
+        <div class="value-item">
+          <p class="value-title">PREMIUM FABRIC</p>
+          <p class="value-desc">ポリエステル88% / スパンデックス12%<br>コットンタッチ・マット加工</p>
+        </div>
+        <div class="value-item">
+          <p class="value-title">4-WAY STRETCH</p>
+          <p class="value-desc">スイング動作を妨げない<br>全方向ストレッチ素材</p>
+        </div>
+        <div class="value-item">
+          <p class="value-title">UPF 30+</p>
+          <p class="value-desc">吸汗速乾・UVカット機能<br>コースでも街でも快適</p>
+        </div>
+        <div class="value-item">
+          <p class="value-title">UNISEX</p>
+          <p class="value-desc">男女兼用設計<br>女性はワンサイズ下を推奨</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- COLLECTION -->
   <section class="collection-brand" id="collection">
     <div class="section-header">
@@ -116,6 +149,20 @@
           <p class="drop-remaining">残り28着</p>
           <p class="drop-deadline">予約締め切り：6月15日</p>
           <p class="drop-delivery">発送予定：8月中旬</p>
+
+          <!-- COUNTDOWN -->
+          <div class="countdown-wrap">
+            <p class="countdown-label">CLOSING IN</p>
+            <div class="countdown">
+              <div class="countdown-block"><span id="cd-days">--</span><span class="cd-unit">DAYS</span></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-block"><span id="cd-hours">--</span><span class="cd-unit">HRS</span></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-block"><span id="cd-mins">--</span><span class="cd-unit">MIN</span></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-block"><span id="cd-secs">--</span><span class="cd-unit">SEC</span></div>
+            </div>
+          </div>
 
           <!-- SIZE GUIDE -->
           <div class="size-guide">
@@ -280,6 +327,29 @@
         sizeToggle.querySelector('.size-guide-arrow').textContent = open ? '▲' : '▼';
       });
     }
+
+    // Countdown timer
+    (function() {
+      const deadline = new Date('2026-06-15T23:59:59+09:00').getTime();
+      function update() {
+        const now = Date.now();
+        const diff = deadline - now;
+        if (diff <= 0) {
+          document.querySelector('.countdown-wrap').innerHTML = '<p class="countdown-label">CLOSED</p>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+        document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+      }
+      update();
+      setInterval(update, 1000);
+    })();
 
     // Hero: video fallback
     const video = document.querySelector('.hero-video');
