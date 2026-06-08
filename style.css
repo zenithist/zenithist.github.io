@@ -1089,20 +1089,15 @@ footer {
   font-size: 10px;
   letter-spacing: .4em;
   color: var(--gold);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
-.brand-story-ja {
+.brand-story-tagline {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 300;
-  line-height: 2.2;
-  color: rgba(240,237,232,.85);
-}
-
-.brand-story-ja strong {
+  letter-spacing: .1em;
   color: var(--off-white);
-  font-weight: 400;
 }
 
 /* ===========================
