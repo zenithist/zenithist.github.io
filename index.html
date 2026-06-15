@@ -114,7 +114,6 @@
             <span class="drop-price-tax">税込</span>
           </div>
           <p class="drop-limit">予約受付上限：200名</p>
-          <p class="drop-remaining">残り9着</p>
           <p class="drop-deadline">予約締め切り：6月15日</p>
           <p class="drop-delivery">発送予定：8月中旬</p>
 
@@ -299,11 +298,32 @@
     // Countdown timer
     (function() {
       const deadline = new Date('2026-06-15T23:59:59+09:00').getTime();
+      var timer;
+      function setSoldOut() {
+        const badge = document.querySelector('.drop-status.available');
+        if (badge) {
+          badge.textContent = 'SOLD OUT';
+          badge.classList.remove('available');
+          badge.classList.add('sold-out');
+        }
+        const wrap = document.querySelector('.countdown-wrap');
+        if (wrap) wrap.innerHTML = '<p class="countdown-label" style="letter-spacing:.2em;font-size:1rem;">SOLD OUT</p>';
+        ['.btn-drop', '.nav-shop', '.mobile-shop'].forEach(function(sel) {
+          const el = document.querySelector(sel);
+          if (el) {
+            el.textContent = 'SOLD OUT';
+            el.removeAttribute('href');
+            el.removeAttribute('onclick');
+            el.style.opacity = '0.4';
+            el.style.pointerEvents = 'none';
+          }
+        });
+      }
       function update() {
-        const now = Date.now();
-        const diff = deadline - now;
+        const diff = deadline - Date.now();
         if (diff <= 0) {
-          document.querySelector('.countdown-wrap').innerHTML = '<p class="countdown-label">CLOSED</p>';
+          setSoldOut();
+          clearInterval(timer);
           return;
         }
         const d = Math.floor(diff / 86400000);
@@ -316,7 +336,7 @@
         document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
       }
       update();
-      setInterval(update, 1000);
+      timer = setInterval(update, 1000);
     })();
 
     // Hero: video fallback
